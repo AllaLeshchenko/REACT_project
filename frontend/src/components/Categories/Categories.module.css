@@ -1,0 +1,65 @@
+.categoriesContainer {
+  width: 1360px;
+  height: 502px;
+  margin: 0 auto; /* центрирование по горизонтали */
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  font-size: 64px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.viewAllBtn {
+  font-size: 16px;
+  text-decoration: none;
+  color: #007bff; /* синий цвет ссылки, можно поменять */
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.viewAllBtn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.grid {
+  display: flex;
+  gap: 32px; /* расстояние между карточками */
+  justify-content: flex-start;
+}
+
+.card {
+  width: 316px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card img {
+  width: 316px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card h3 {
+  margin-top: 12px;
+  font-size: 20px;
+  font-weight: normal;
+}

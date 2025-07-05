@@ -1,7 +1,10 @@
 body{
   font-family: "Montserrat", sans-serif;
 }
-
+h2 {
+  font-size: 64px;
+  font-weight: 700;
+}
 p,
 h1,
 h2,
