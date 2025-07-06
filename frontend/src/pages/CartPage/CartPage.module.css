@@ -1,0 +1,83 @@
+.pageContainer {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+h2 {
+  font-size: 48px;
+  margin-bottom: 32px;
+}
+
+.cartList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.card img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 24px;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.info p {
+  margin: 4px 0;
+  font-size: 18px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.controls button {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.controls button:hover {
+  background-color: #e0e0e0;
+}
+
+.controls span {
+  font-size: 18px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.total {
+  margin-top: 40px;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: right;
+}

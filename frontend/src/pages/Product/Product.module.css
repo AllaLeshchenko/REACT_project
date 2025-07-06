@@ -1,19 +1,115 @@
-.oldPrice {
-  /* что-то вроде: */
-  text-decoration: line-through;
+.container {
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.breadcrumb {
+  margin-bottom: 20px;
+  font-size: 14px;
   color: #888;
 }
 
-.newPrice {
-  font-weight: bold;
-  color: #222;
+.content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
 }
 
-.addToCart {
+/* ✅ Блок с изображением */
+.image {
+  width: 780px;
+  height: 572px;
+  object-fit: contain; /* 👈 Чтобы не обрезалось */
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+/* ✅ Блок с информацией */
+.details {
+  width: 548px;
+  height: 574px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.priceBlock {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.newPrice {
+  font-size: 64px;
+  color: #007bff;
+}
+
+.oldPrice {
+  font-size: 40px;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+/* Кнопки +/- */
+.controls button:not(.cartBtn) {
+  width: 58px;
+  height: 58px;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Количество */
+.controls span {
+  width: 90px;
+  height: 58px;
+  line-height: 58px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+}
+
+/* Кнопка Add to cart */
+.cartBtn {
+  width: 315px;
+  height: 58px;
   background-color: #007bff;
   color: white;
-  padding: 8px 16px;
+  font-size: 18px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
+}
+
+.description {
+  margin-top: 20px;
+}
+
+.readMore {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 0;
+  font-size: 14px;
 }

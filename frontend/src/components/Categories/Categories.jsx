@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react' 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCategories } from '../../redux/categoriesSlice'
+import { fetchCategories } from '../../redux/apiSlice'
 import { Link } from 'react-router-dom'
 import styles from './Categories.module.css'
 
 const Categories = () => {
   const dispatch = useDispatch()
-  const { items, status } = useSelector((state) => state.categories)
+  const { items, status } = useSelector((state) => state.api.categories)
 
   useEffect(() => {
     if (status === 'idle') {

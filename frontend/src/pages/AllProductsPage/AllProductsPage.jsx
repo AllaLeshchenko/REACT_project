@@ -1,9 +1,66 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAllProducts } from '../../redux/apiSlice'
+import { addToCart } from '../../redux/cartSlice'
+import { Link, useNavigate } from 'react-router-dom'
+import styles from './AllProductsPage.module.css'
 
-const AllProducsPage = () => {
+const AllProductsPage = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { items, status} = useSelector((state) => state.api.products)
+  const [sortBy, setSortBy] = useState('')
+
+  useEffect(() => {
+    if (status === 'idle') dispatch(fetchAllProducts())
+  }, [dispatch, status])
+
+  const sortedItems = [...items].sort((a, b) => {
+    if (sortBy === 'price-low') return a.price - b.price
+    if (sortBy === 'price-high') return b.price - a.price
+    if (sortBy === 'newest') return new Date(b.createdAt) - new Date(a.createdAt)
+    return 0
+  })
+
   return (
-    <h1>AllProducsPage</h1>
+   <div className={styles.pageContainer}>
+  <div className={styles.breadcrumb}>
+    <button onClick={() => navigate('/')}>Main page</button>  <span>All products</span>
+  </div>
+
+  <h1 className={styles.pageTitle}>All products</h1>
+
+  <div className={styles.sorting}>
+    <label>Сортировка: </label>
+    <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+      <option value="">Без сортировки</option>
+      <option value="price-low">Цена: по возрастанию</option>
+      <option value="price-high">Цена: по убыванию</option>
+      <option value="newest">Сначала новые</option>
+    </select>
+  </div>
+
+  <div className={styles.grid}>
+    {sortedItems.map(product => (
+      <div key={product.id} className={styles.card}>
+        <Link to={`/products/${product.id}`}>
+          <img src={`http://localhost:3333${product.image}`} alt={product.title} />
+          <h3>{product.title}</h3>
+          <div className={styles.priceContainer}>
+            <p className={styles.price}>
+              {product.discont_price ? `$${product.discont_price}` : `$${product.price}`}
+            </p>
+            {product.discont_price && (
+              <p className={styles.oldPrice}>${product.price}</p>
+            )}
+          </div>
+        </Link>
+        <button onClick={() => dispatch(addToCart(product))}>Добавить в корзину</button>
+      </div>
+    ))}
+  </div>
+</div>
   )
 }
 
-export default AllProducsPage
+export default AllProductsPage
