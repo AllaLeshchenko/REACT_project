@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllProducts } from '../../redux/apiSlice';
 import { Link } from 'react-router-dom';
 import styles from './Sale.module.css';
+import NavButton from '../../ui/NavButton/NavButton'
 
 const Sale = () => {
   const dispatch = useDispatch();
@@ -16,19 +17,25 @@ const Sale = () => {
 
   const discountedProducts = useMemo(() => {
     const filtered = allProducts.filter(p => p.discont_price);
-    return filtered.sort(() => 0.5 - Math.random()).slice(0, 4); // случайные 4 товара
+    return filtered.sort(() => 0.5 - Math.random()).slice(0, 4); 
   }, [allProducts]);
 
   return (
-    <section className={styles.sale}>
+    <div className={styles.container}>
       <div className={styles.header}>
         <h2>Sale</h2>
-        <Link to="/discounts" className={styles.link}>See all sales</Link>
+        <Link to="/discounts">
+           <NavButton>All sales</NavButton>
+        </Link>
       </div>
 
-      <div className={styles.cards}>
+      <div className={styles.grid}>
         {discountedProducts.map(product => (
-          <Link to={`/products/${product.id}`} className={styles.card} key={product.id}>
+          <Link 
+            to={`/products/${product.id}`} 
+            key={product.id}
+            className={styles.card} 
+          >
             <div className={styles.imageWrapper}>
               {product.image ? (
                 <img
@@ -50,7 +57,7 @@ const Sale = () => {
           </Link>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

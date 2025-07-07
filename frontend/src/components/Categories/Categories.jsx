@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchCategories } from '../../redux/apiSlice'
 import { Link } from 'react-router-dom'
 import styles from './Categories.module.css'
+import NavButton from '../../ui/NavButton/NavButton'
+
 
 const Categories = () => {
   const dispatch = useDispatch()
@@ -20,7 +22,9 @@ const Categories = () => {
 <div className={styles.container}>
   <div className={styles.header}>
     <h2>Categories</h2>
-    <Link to="/categories" className={styles.viewAllBtn}>All categories</Link>
+    <Link to="/categories">
+      <NavButton>All categories</NavButton>
+    </Link>
   </div>
 
   <div className={styles.grid}>

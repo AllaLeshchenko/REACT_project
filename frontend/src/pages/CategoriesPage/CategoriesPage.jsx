@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCategories } from '../../redux/apiSlice'
 import { Link } from 'react-router-dom'
 import styles from './CategoriesPage.module.css'
+import NavButton from '../../ui/NavButton/NavButton'
 
 const CategoriesPage = () => {
   const dispatch = useDispatch()
@@ -15,10 +16,10 @@ const CategoriesPage = () => {
   }, [dispatch, status])
 
   return (
-    <div className={styles.pageContainer}>
- 
+    <div className={styles.container}>
       <div className={styles.links}>
-        <Link to="/" className={styles.link}>Main page</Link> - <span className={styles.active}>Categories</span>
+        <NavButton to="/">Home</NavButton>
+        <NavButton to='/categories'>Categories</NavButton>
       </div>
       <h2 className={styles.title}>Categories</h2>
       <div className={styles.grid}>

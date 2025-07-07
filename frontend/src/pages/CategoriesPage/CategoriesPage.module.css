@@ -1,4 +1,4 @@
-.pageContainer {
+.container {
   max-width: 1370px;
   margin: 0 auto;
   padding: 0px;
@@ -40,22 +40,10 @@
   font-size: 20px;
   margin-top: 12px;
 }
+
 .links {
   margin-top: 40px;
-  font-size: 16px;
   margin-bottom: 24px;
-  color: #282828;
-}
-.link {
-  text-decoration: none;
-  color: #282828;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
-.active {
-  font-weight: bold;
-  color: #282828;
+  display: flex;
+  gap: 16px;
 }

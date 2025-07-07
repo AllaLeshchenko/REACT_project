@@ -1,0 +1,20 @@
+.navButton {
+  min-width: 120px;
+  height: 36px;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 18px;
+  color: #8B8B8B;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.navButton:hover {
+  transform: scale(1.03);
+}
+.navButton.active {
+   /* color: #282828; */
+   color: black;
+
+}

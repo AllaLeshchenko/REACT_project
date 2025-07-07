@@ -5,10 +5,11 @@
   font-family: sans-serif;
 }
 
-.breadcrumb {
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: #888;
+.links {
+  margin-top: 40px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 16px;
 }
 
 .content {
@@ -17,16 +18,14 @@
   align-items: flex-start;
 }
 
-/* ✅ Блок с изображением */
 .image {
   width: 780px;
   height: 572px;
-  object-fit: contain; /* 👈 Чтобы не обрезалось */
+  object-fit: contain; 
   border: 1px solid #ccc;
   background-color: #f9f9f9;
 }
 
-/* ✅ Блок с информацией */
 .details {
   width: 548px;
   height: 574px;
@@ -34,10 +33,9 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
 .title {
   font-size: 40px;
-  margin-bottom: 20px;
+  font-weight: 700;
 }
 
 .priceBlock {
@@ -49,7 +47,8 @@
 
 .newPrice {
   font-size: 64px;
-  color: #007bff;
+  color: #282828;
+  font-weight: 700;
 }
 
 .oldPrice {

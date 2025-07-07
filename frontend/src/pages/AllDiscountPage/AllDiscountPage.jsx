@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllProducts } from '../../redux/apiSlice'
 import { addToCart } from '../../redux/cartSlice'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styles from './AllDiscountPage.module.css'
 import MyButton from '../../ui/MyButton/MyButton'
+import NavButton from '../../ui/NavButton/NavButton'
 
 const AllDiscountPage = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const { items, status } = useSelector((state) => state.api.products)
   const [sortBy, setSortBy] = useState('')
 
@@ -26,12 +26,12 @@ const AllDiscountPage = () => {
   })
 
   return (
-    <div className={styles.pageContainer}>
-      <div className={styles.breadcrumb}>
-        <button onClick={() => navigate('/')}>Main page</button>  <span>All salles</span>
+    <div className={styles.container}>
+       <div className={styles.links}>
+        <NavButton to="/">Home</NavButton>
+        <NavButton to='/discounts'>All sales</NavButton>
       </div>
-
-      <h1 className={styles.pageTitle}>Discounted Items</h1>
+      <h2>Discounted Items</h2>
 
       <div className={styles.sorting}>
         <label>Сортировка: </label>

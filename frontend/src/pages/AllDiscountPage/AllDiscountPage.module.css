@@ -1,36 +1,20 @@
-.pageContainer {
+.container {
   padding: 40px;
   max-width: 1400px;
   margin: 0 auto;
   font-family: sans-serif;
 }
 
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
-  font-size: 16px;
-}
 
-.breadcrumb button {
-  width: 118px;
-  height: 36px;
-  background-color: #f2f2f2;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.breadcrumb span {
-  font-weight: bold;
-}
-
-.pageTitle {
-  font-size: 64px;
-  font-weight: bold;
+.h2 {
   margin-bottom: 32px;
+}
+
+.links {
+  margin-top: 40px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 16px;
 }
 
 .sorting {

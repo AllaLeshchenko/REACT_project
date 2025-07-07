@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 import styles from './CategoryProduct.module.css'
+import NavButton from '../../ui/NavButton/NavButton'
 
 const CategoryProduct = () => {
   const { id } = useParams()
@@ -27,10 +28,11 @@ const CategoryProduct = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.breadcrumb}>
-        <Link to="/">Main page</Link> / {category?.title || `Category ${id}`}
+      <div className={styles.links}>
+        <NavButton to="/">Home</NavButton>
+        <NavButton to='/categories'>Categories</NavButton>
+        <NavButton to={`/categories/${id}`}>{category?.title || `Category ${id}`}</NavButton>
       </div>
-
       <h2 className={styles.title}>
         {category ? category.title : `Category ${id}`}
       </h2>
