@@ -1,0 +1,19 @@
+.container {
+    max-width: 1400px;
+    width: 100%;
+    min-height: 530px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+    color: #282828;
+}
+.title {
+    font-size: 64px;
+}
+.text{
+    font-size: 20px;
+}

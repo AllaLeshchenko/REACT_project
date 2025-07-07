@@ -4,6 +4,7 @@ import { fetchAllProducts } from '../../redux/apiSlice'
 import { addToCart } from '../../redux/cartSlice'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './AllDiscountPage.module.css'
+import MyButton from '../../ui/MyButton/MyButton'
 
 const AllDiscountPage = () => {
   const dispatch = useDispatch()
@@ -27,10 +28,10 @@ const AllDiscountPage = () => {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.breadcrumb}>
-        <button onClick={() => navigate('/')}>Main page</button> / <span>Discounts</span>
+        <button onClick={() => navigate('/')}>Main page</button>  <span>All salles</span>
       </div>
 
-      <h1 className={styles.pageTitle}>All discounts</h1>
+      <h1 className={styles.pageTitle}>Discounted Items</h1>
 
       <div className={styles.sorting}>
         <label>Сортировка: </label>
@@ -53,7 +54,7 @@ const AllDiscountPage = () => {
                 <p className={styles.oldPrice}>${product.price}</p>
               </div>
             </Link>
-            <button onClick={() => dispatch(addToCart(product))}>Добавить в корзину</button>
+            <MyButton onClick={() => dispatch(addToCart(product))}>Add to cart</MyButton>
           </div>
         ))}
       </div>

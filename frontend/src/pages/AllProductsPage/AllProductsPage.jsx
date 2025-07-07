@@ -4,6 +4,7 @@ import { fetchAllProducts } from '../../redux/apiSlice'
 import { addToCart } from '../../redux/cartSlice'
 import { Link, useNavigate } from 'react-router-dom'
 import styles from './AllProductsPage.module.css'
+import MyButton from '../../ui/MyButton/MyButton'
 
 const AllProductsPage = () => {
   const dispatch = useDispatch()
@@ -55,7 +56,7 @@ const AllProductsPage = () => {
             )}
           </div>
         </Link>
-        <button onClick={() => dispatch(addToCart(product))}>Добавить в корзину</button>
+        <MyButton onClick={() => dispatch(addToCart(product))}>Добавить в корзину</MyButton>
       </div>
     ))}
   </div>

@@ -1,4 +1,6 @@
 import styles from './Promo.module.css'
+import MyButton from '../../ui/MyButton/MyButton'
+
 
 const Promo = () => {
   return (
@@ -8,7 +10,7 @@ const Promo = () => {
             <h1 className={styles.promoTitle}>
               Amazing Discounts <br/> on Pets Products!
             </h1>
-            <button className={styles.promoButton}>Check out</button>
+            <MyButton>Check out</MyButton>
           </div>
         </section>
       </div>

@@ -49,7 +49,7 @@
 
 .card {
   width: 316px;
-  height: 422px;
+  min-height: 422px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -68,13 +68,11 @@
   border-radius: 4px;
 }
 
-/* Название товара */
 .card h3 {
   font-size: 20px;
   margin: 8px 0;
 }
 
-/* Цена */
 .price {
   font-size: 40px;
   font-weight: bold;
@@ -94,14 +92,3 @@
   align-items: center;
 }
 
-/* Кнопка корзины */
-.card button {
-  margin-top: auto;
-  padding: 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}

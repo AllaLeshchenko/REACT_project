@@ -5,7 +5,6 @@
   font-family: sans-serif;
 }
 
-/* Навигация */
 .breadcrumb {
   display: flex;
   align-items: center;
@@ -28,14 +27,12 @@
   font-weight: bold;
 }
 
-/* Заголовок */
 .pageTitle {
   font-size: 64px;
   font-weight: bold;
   margin-bottom: 32px;
 }
 
-/* Сортировка */
 .sorting {
   display: flex;
   align-items: center;
@@ -43,7 +40,6 @@
   margin-bottom: 32px;
 }
 
-/* Сетка товаров */
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 316px);
@@ -51,10 +47,9 @@
   justify-content: space-between;
 }
 
-/* Карточка товара */
 .card {
   width: 316px;
-  height: 422px;
+  min-height: 422px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -73,13 +68,11 @@
   border-radius: 4px;
 }
 
-/* Название товара */
 .card h3 {
   font-size: 20px;
   margin: 8px 0;
 }
 
-/* Цена */
 .price {
   font-size: 40px;
   font-weight: bold;
@@ -99,14 +92,3 @@
   align-items: center;
 }
 
-/* Кнопка корзины */
-.card button {
-  margin-top: auto;
-  padding: 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}

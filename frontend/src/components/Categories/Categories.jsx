@@ -17,7 +17,7 @@ const Categories = () => {
   const displayedCategories = items.slice(0, 4)
 
   return (
-<div className={styles.categoriesContainer}>
+<div className={styles.container}>
   <div className={styles.header}>
     <h2>Categories</h2>
     <Link to="/categories" className={styles.viewAllBtn}>All categories</Link>

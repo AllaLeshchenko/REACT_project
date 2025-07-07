@@ -1,6 +1,7 @@
-.categoriesContainer {
-  width: 1360px;
-  height: 502px;
+.container {
+  width: 100%;
+  max-width: 1360px;
+  min-height: 502px;
   margin: 0 auto; /* центрирование по горизонтали */
   display: flex;
   flex-direction: column;
@@ -24,7 +25,7 @@
 .viewAllBtn {
   font-size: 16px;
   text-decoration: none;
-  color: #007bff; /* синий цвет ссылки, можно поменять */
+  color: #007bff;
   cursor: pointer;
   padding: 8px 16px;
   border: 1px solid #007bff;
@@ -39,8 +40,9 @@
 
 .grid {
   display: flex;
-  gap: 32px; /* расстояние между карточками */
+  gap: 32px; 
   justify-content: flex-start;
+   flex-wrap: wrap;
 }
 
 .card {
