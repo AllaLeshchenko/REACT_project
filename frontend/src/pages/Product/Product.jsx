@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../../redux/cartSlice'
 import styles from './Product.module.css'
 import MyButton from '../../ui/MyButton/MyButton'
 import NavButton from '../../ui/NavButton/NavButton'
+import { useLocation, useParams } from 'react-router-dom';
 
 const Product = () => {
   const { id } = useParams()
+  const location = useLocation();
+  const from = location.state?.from || '/';
+  const fromLabel = location.state?.label || 'Home';
+
   const [product, setProduct] = useState(null)
   const [categoryTitle, setCategoryTitle] = useState('')
   const [quantity, setQuantity] = useState(1)
@@ -24,7 +28,6 @@ const Product = () => {
         if (productData) {
           setProduct(productData)
 
-          // Загружаем категорию по categoryId
           const categoryRes = await axios.get(`http://localhost:3333/categories/${productData.categoryId}`)
           setCategoryTitle(categoryRes.data.category.title)
         } else {
@@ -54,14 +57,13 @@ const Product = () => {
 
   return (
     <div className={styles.container}>
-      {/* Навигация */}
-      <div className={styles.links}>
-        <NavButton to="/">Home</NavButton>
-        <NavButton to="/categories">Categories</NavButton>
-        <NavButton to={`/categories/${categoryId}`}>{categoryTitle || 'Category'}</NavButton>
-        <NavButton to={`/products/${id}`}>{title}</NavButton> {/* активная */}
-      </div>
 
+       <div className={styles.links}>
+        <NavButton to="/">Home</NavButton>
+        <NavButton to={from}>{fromLabel}</NavButton>
+        <NavButton to={`/categories/${categoryId}`}>{categoryTitle || 'Category'}</NavButton>
+        <NavButton to={`/products/${id}`}>{title}</NavButton>
+      </div>
       <div className={styles.content}>
         {image ? (
           <img

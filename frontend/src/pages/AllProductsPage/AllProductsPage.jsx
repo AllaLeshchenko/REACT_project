@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllProducts } from '../../redux/apiSlice'
-import { addToCart } from '../../redux/cartSlice'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import styles from './AllProductsPage.module.css'
-import MyButton from '../../ui/MyButton/MyButton'
 import NavButton from '../../ui/NavButton/NavButton'
+import ProductCard from '../../ui/ProductCard/ProductCard'
 
 const AllProductsPage = () => {
   const dispatch = useDispatch()
+  const location = useLocation();
   const { items, status} = useSelector((state) => state.api.products)
   const [sortBy, setSortBy] = useState('')
 
@@ -40,26 +40,16 @@ const AllProductsPage = () => {
       <option value="newest">Сначала новые</option>
     </select>
   </div>
-
-  <div className={styles.grid}>
-    {sortedItems.map(product => (
-      <div key={product.id} className={styles.card}>
-        <Link to={`/products/${product.id}`}>
-          <img src={`http://localhost:3333${product.image}`} alt={product.title} />
-          <h3>{product.title}</h3>
-          <div className={styles.priceContainer}>
-            <p className={styles.price}>
-              {product.discont_price ? `$${product.discont_price}` : `$${product.price}`}
-            </p>
-            {product.discont_price && (
-              <p className={styles.oldPrice}>${product.price}</p>
-            )}
-          </div>
-        </Link>
-        <MyButton onClick={() => dispatch(addToCart(product))}>Добавить в корзину</MyButton>
-      </div>
-    ))}
-  </div>
+   <div className={styles.grid}>
+     {sortedItems.map(product => (
+       <ProductCard
+         key={product.id}
+         product={product}
+         fromPath={location.pathname}
+         fromLabel="All products"
+       />
+     ))}
+   </div>
 </div>
   )
 }

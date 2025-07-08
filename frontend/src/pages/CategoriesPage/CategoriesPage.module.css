@@ -1,9 +1,7 @@
 .container {
-  max-width: 1370px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0px;
-  box-sizing: border-box;
-  border: 2px solid grey;
+  padding: 40px;
 }
 
 .breadcrumbs {

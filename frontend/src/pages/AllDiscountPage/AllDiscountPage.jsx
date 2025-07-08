@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllProducts } from '../../redux/apiSlice'
 import { addToCart } from '../../redux/cartSlice'
-import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import styles from './AllDiscountPage.module.css'
-import MyButton from '../../ui/MyButton/MyButton'
 import NavButton from '../../ui/NavButton/NavButton'
+import ProductCard from '../../ui/ProductCard/ProductCard'
 
 const AllDiscountPage = () => {
   const dispatch = useDispatch()
+  const location = useLocation()
   const { items, status } = useSelector((state) => state.api.products)
   const [sortBy, setSortBy] = useState('')
 
@@ -27,10 +28,11 @@ const AllDiscountPage = () => {
 
   return (
     <div className={styles.container}>
-       <div className={styles.links}>
+      <div className={styles.links}>
         <NavButton to="/">Home</NavButton>
-        <NavButton to='/discounts'>All sales</NavButton>
+        <NavButton to="/discounts">All sales</NavButton>
       </div>
+
       <h2>Discounted Items</h2>
 
       <div className={styles.sorting}>
@@ -45,17 +47,13 @@ const AllDiscountPage = () => {
 
       <div className={styles.grid}>
         {sorted.map(product => (
-          <div key={product.id} className={styles.card}>
-            <Link to={`/products/${product.id}`}>
-              <img src={`http://localhost:3333${product.image}`} alt={product.title} />
-              <h3>{product.title}</h3>
-              <div className={styles.priceContainer}>
-                <p className={styles.price}>${product.discont_price}</p>
-                <p className={styles.oldPrice}>${product.price}</p>
-              </div>
-            </Link>
-            <MyButton onClick={() => dispatch(addToCart(product))}>Add to cart</MyButton>
-          </div>
+          <ProductCard
+            key={product.id}
+            product={product}
+            showButton={true}
+            onAddToCart={(p) => dispatch(addToCart(p))}
+            linkState={{ from: location.pathname, label: 'All sales' }}
+          />
         ))}
       </div>
     </div>
