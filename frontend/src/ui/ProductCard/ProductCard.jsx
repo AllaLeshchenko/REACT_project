@@ -20,7 +20,7 @@ const ProductCard = ({ product, fromPath, fromLabel }) => {
         to={`/products/${product.id}`}
         state={{ from: fromPath, label: fromLabel }}
         className={styles.link}
-      >
+       >
         <div className={styles.imageWrapper}>
           {product.image ? (
             <img
@@ -36,9 +36,10 @@ const ProductCard = ({ product, fromPath, fromLabel }) => {
             </div>
           )}
         </div>
-
-        <h4 className={styles.title}>{product.title}</h4>
-
+        <div className={styles.title}>
+          <h4 >{product.title.split(' ').slice(0, 3).join(' ')}</h4>
+        </div>
+        
         <div className={styles.prices}>
           <span className={styles.newPrice}>
             ${product.discont_price || product.price}
@@ -48,8 +49,6 @@ const ProductCard = ({ product, fromPath, fromLabel }) => {
           )}
         </div>
       </Link>
-
-      {/* Кнопка — по центру, появляется при наведении */}
       <div className={styles.addButton}>
         <MyButton onClick={handleAddToCart}>Add to cart</MyButton>
       </div>

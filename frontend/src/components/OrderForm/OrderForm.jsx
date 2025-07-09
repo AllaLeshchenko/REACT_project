@@ -7,7 +7,7 @@ import styles from './OrderForm.module.css'
 const OrderForm = ({ setIsModalOpen }) => {
   const dispatch = useDispatch()
   const cartItems = useSelector((state) => state.cart.items)
-  const totalPrice = useSelector((state) => state.cart.totalPrice)
+ 
 
   const {
     register,
@@ -34,14 +34,7 @@ const OrderForm = ({ setIsModalOpen }) => {
   }
 
   return (
-    <div className={styles.orderSection}>
-      <h3>Order details</h3>
-      <p>{cartItems.reduce((sum, item) => sum + item.quantity, 0)} items</p>
-      <div className={styles.orderTotal}>
-        <span>Total:</span>
-        <strong>${totalPrice.toFixed(2)}</strong>
-      </div>
-
+    <div className={styles.order}>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.orderForm}>
         <input
           type="text"
