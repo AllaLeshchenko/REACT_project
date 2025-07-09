@@ -1,45 +1,85 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { increaseQty, decreaseQty, removeFromCart } from '../../redux/cartSlice'
+import {increaseQty, decreaseQty} from '../../redux/cartSlice'
+import { useState } from 'react'
+import OrderForm from '../../components/OrderForm/OrderForm'
+import { useNavigate } from 'react-router-dom';
 import styles from './CartPage.module.css'
+import MyButton from '../../ui/MyButton/MyButton';
 
 const CartPage = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const total = cartItems.reduce((sum, item) =>
-    sum + (item.discont_price || item.price) * item.quantity, 0)
+  if (cartItems.length === 0 && !isModalOpen) {
+    return (
+      <div className={styles.pageContainer}>
+        <h2>Shopping cart</h2>
+        <p>Looks like you have no items in your basket currently</p>
+        <MyButton onClick={() => navigate('/')}>Continue Shopping</MyButton>
+      </div>
+    )
+  }
 
   return (
-    <div className={styles.pageContainer}>
-      <h2>Schopping cart</h2>
-      {cartItems.length === 0 ? (
-        <p>Корзина пуста</p>
-      ) : (
-        <>
-          <div className={styles.cartList}>
-            {cartItems.map((item) => (
-              <div key={item.id} className={styles.card}>
-                <img src={`http://localhost:3333${item.image}`} alt={item.title} />
-                <div className={styles.info}>
+    <div className={styles.container}>
+      <h2>Shopping cart</h2>
+      <div className={styles.cartContent}>
+        <div className={styles.cartItemsSection}>
+          {cartItems.map((item) => {
+            const price = item.discont_price ?? item.price
+            const oldPrice = item.discont_price ? item.price : null
+
+            return (
+              <div key={item.id} className={styles.cartItem}>
+                <img
+                  src={`http://localhost:3333${item.image}`}
+                  alt={item.title}
+                />
+                <div className={styles.itemDetails}>
                   <h3>{item.title}</h3>
-                  <p>Цена: {(item.discont_price || item.price)} $</p>
-                  <p>Сумма: {(item.discont_price || item.price) * item.quantity} $</p>
-                  <div className={styles.controls}>
-                    <button onClick={() => dispatch(decreaseQty(item.id))}>−</button>
-                    <span>{item.quantity}</span>
-                    <button onClick={() => dispatch(increaseQty(item.id))}>+</button>
-                    <button onClick={() => dispatch(removeFromCart(item.id))}>Удалить</button>
+                  <div className={styles.price}>
+                     <div className={styles.controls}>
+                        <button onClick={() => dispatch(decreaseQty(item.id))}>−</button>
+                        <span>{item.quantity}</span>
+                        <button onClick={() => dispatch(increaseQty(item.id))}>+</button>
+                     </div>
+                     <div className={styles.priceBlock}>
+                        <span className={styles.currentPrice}>${price}</span>
+                          {oldPrice && (
+                        <span className={styles.oldPrice}>${oldPrice}</span>
+                       )}
+                     </div>
                   </div>
                 </div>
               </div>
-            ))}
+            )
+          })}
+        </div>
+        <OrderForm setIsModalOpen={setIsModalOpen} />
+      </div>
+      {isModalOpen && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <div className={styles.header}>
+              <h4>Congratulations!</h4>
+              <input
+                type="checkbox"
+                className={styles.closeCheckbox}
+                onChange={() => setIsModalOpen(false)}
+              />
+            </div>
+            <p>
+             Your order has been successfully placed <br /> on the website. <br /> <br />
+              A manager will contact you shortly <br /> to confirm your order.
+            </p>
           </div>
-          <div className={styles.total}>Итого: {total.toFixed(2)} $</div>
-        </>
+       </div>
       )}
     </div>
   )
 }
 
 export default CartPage
+
