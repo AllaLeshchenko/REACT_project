@@ -1,5 +1,6 @@
 import styles from './Promo.module.css'
 import MyButton from '../../ui/MyButton/MyButton'
+import { Link } from 'react-router-dom'
 
 
 const Promo = () => {
@@ -10,7 +11,9 @@ const Promo = () => {
             <h1 className={styles.promoTitle}>
               Amazing Discounts <br/> on Pets Products!
             </h1>
-            <MyButton>Check out</MyButton>
+            <Link to="/discounts">
+              <MyButton>Check out</MyButton>
+            </Link>
           </div>
         </section>
       </div>

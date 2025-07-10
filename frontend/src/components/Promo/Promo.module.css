@@ -30,30 +30,21 @@
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.promoButton {
-  padding: 16px 56px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: white;
-  background-color: #0D50FF;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
-@media (max-width: 768px) {
-  .hero {
+@media (max-width: 1000px) {
+  .promo {
     height: 500px;
   }
-  
-  .heroTitle {
-    font-size: 2.2rem;
+  .promoTitle {
+    font-size: 70px;
   }
-  
-  .heroButton {
-    padding: 12px 25px;
-    font-size: 1rem;
+}
+
+@media (max-width: 500px) {
+  .promo {
+    height: 500px;
+  }
+  .promoTitle {
+    font-size: 40px;
   }
 }

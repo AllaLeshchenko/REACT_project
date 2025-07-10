@@ -1,8 +1,8 @@
-import React, { useEffect, useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllProducts } from '../../redux/apiSlice';
-import { Link } from 'react-router-dom';
-import styles from './Sale.module.css';
+import React, { useEffect, useMemo } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAllProducts } from '../../redux/apiSlice'
+import { Link } from 'react-router-dom'
+import styles from './Sale.module.css'
 import NavButton from '../../ui/NavButton/NavButton'
 import ProductCard from '../../ui/ProductCard/ProductCard'
 

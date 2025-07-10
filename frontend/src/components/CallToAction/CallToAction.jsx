@@ -1,5 +1,5 @@
-import styles from './CallToAction.module.css';
-import ctaImage from '../../assets/images/cta-pets.png'; 
+import styles from './CallToAction.module.css'
+import ctaImage from '../../assets/images/cta-pets.png' 
 import MyLargeButton from '../../ui/MyLargeButton/MyLargeButton'
 
 const CallToAction = () => {

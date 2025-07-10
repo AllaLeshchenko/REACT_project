@@ -5,7 +5,6 @@
   margin: 0 auto;
   background: #fff;
   position: relative;
-  border: 1px solid black;
 }
 
 .nav {
@@ -72,20 +71,74 @@
   transform: scale(1.1);
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1000px) {
   .nav {
-    flex-direction: column; /* меню станет вертикальным */
-    gap: 16px; /* уменьшаем расстояния */
+    padding: 0 15px;
+    gap: 16px;
+  }
+
+  .navigation {
+    gap: 16px;
+  }
+
+  .logo {
+    height: 40px;
   }
 
   .cartWrapp {
-    align-self: flex-end; /* выравниваем корзину по правому краю */
+    min-width: 40px;
   }
 
-  /* Можно уменьшить размер иконки */
+  .cartImg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cartBadge {
+    top: 6px;
+    right: 14px;
+    width: 20px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  .navLinks {
+    flex: 1;
+    justify-content: space-around;
+  }
+
+  .header {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
+    gap: 16px;
+  }
+
+  .navigation {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
   .cartImg {
     width: 36px;
     height: 36px;
   }
 
+  .cartBadge {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    top: 5px;
+    right: 10px;
+  }
 }
