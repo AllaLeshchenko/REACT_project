@@ -1,0 +1,26 @@
+.order {
+  width: 484px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+
+.orderForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.orderForm input {
+  padding: 16px 32px;
+  font-size: 20px;
+  color: #8B8B8B;
+  border: 1px solid #e7e2e2;
+  border-radius: 6px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 5px;
+}

@@ -1,9 +1,22 @@
-import styles from './MyLargeButton.module.css'
+import styles from './MyLargeButton.module.css';
 
-function MyLargeButton({children, onClick}) {
+function MyLargeButton({
+  children,
+  onClick,
+  type = 'button',
+  className = '',
+  variant = 'whiteOnDark',  // или blueOnWhite
+  size = 'size516',         // или size484
+}) {
   return (
-    <button onClick={onClick} className={styles.button}>{children}</button>
-  )
+    <button 
+      type={type}
+      onClick={onClick}
+      className={`${styles.button} ${styles[variant]} ${styles[size]} ${className}`}
+    >
+      {children}
+    </button>
+  );
 }
 
-export default MyLargeButton
+export default MyLargeButton;

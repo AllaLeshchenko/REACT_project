@@ -1,11 +1,9 @@
 .container {
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1360px;
+  margin: 40px auto;
 }
 
 .cartContent {
-  border: #2d2d2d;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -20,46 +18,14 @@
   gap: 20px;
 }
 
-.sidebar {
-  width: 548px;
-  height: 582px;
-  padding: 32px;
-  background-color: #f5f5f5;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  align-items: center;
-}
-
-.orderSection {
-  width: 484px;
-  height: 190px;
-  background-color: #ffffff;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.25);
-}
-h4 {
-  font-size: 40px;
-}
-
-.orderSection p{
-  font-size: 40px;
-  color: #8B8B8B;
-}
-
-.orderTotal span{
-  font-size: 30px;
-
-}
 .cartItem {
-  border: 1px solid rgb(253, 48, 253);
   display: flex;
   background-color: #f8f8f8;
   border-radius: 10px;
   overflow: hidden;
   height: 180px;
   width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
 }
 
 .cartItem img {
@@ -76,26 +42,14 @@ h4 {
 }
 
 .text {
-  border: 1px solid rgb(31, 7, 31);
-  width: 300px;
+  width: 510px;
   height: 26px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* .text h3 {
-  font-size: 20px;
-  font-weight: 500;
-  color: #000;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-} */
-
 .checkbox {
-  border: 1px solid black;
   appearance: none;
   -webkit-appearance: none;
   background-color: white;
@@ -113,7 +67,7 @@ h4 {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 16px;         /* увеличим ширину для лучшей видимости */
+  width: 16px;        
   height: 2px;
   background-color: black;
   transform: translate(-50%, -50%) rotate(45deg);
@@ -126,9 +80,8 @@ h4 {
 .price {
   width: 516pxpx;
   height: 58px;
-  border: 1px solid green;
   display: flex;
-  gap: 20px;
+  gap: 40px;
 }
 
 .controls {
@@ -138,7 +91,6 @@ h4 {
   align-items: center;
   gap: 10px;
 }
-
 
 .controls button {
   width: 58px;
@@ -159,8 +111,6 @@ h4 {
   margin-top: 0;
   width: 200px;
   height: 58px;
-   border: 1px solid rgb(14, 107, 168);
-  margin-top: 20px;
 }
 
 .currentPrice {
@@ -174,6 +124,48 @@ h4 {
   font-size: 16px;
   color: #999;
   text-decoration: line-through;
+}
+
+.sidebar {
+  width: 548px;
+  height: 582px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orderSection {
+  width: 484px;
+  height: 190px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+h4 {
+  font-size: 40px;
+}
+
+.orderSection p{
+  font-size: 40px;
+  color: #8B8B8B;
+}
+
+.orderTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orderTotal span{
+  font-size: 30px;
+}
+
+.orderTotal strong{
+  font-size: 64px;
+  font-weight: bold;
 }
 
 .modal {

@@ -32,7 +32,6 @@ const AllDiscountPage = () => {
         <NavButton to="/">Home</NavButton>
         <NavButton to="/discounts">All sales</NavButton>
       </div>
-
       <h2>Discounted Items</h2>
 
       <div className={styles.sorting}>

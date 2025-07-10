@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { increaseQty, decreaseQty, removeFromCart } from '../../redux/cartSlice';
 import { useState } from 'react';
-import OrderForm from '../../components/OrderForm/OrderForm';
+import OrderForm from '../../ui/OrderForm/OrderForm';
 import { useNavigate } from 'react-router-dom';
 import styles from './CartPage.module.css';
 import MyButton from '../../ui/MyButton/MyButton';
@@ -27,7 +27,6 @@ const CartPage = () => {
   return (
     <div className={styles.container}>
       <h2>Shopping cart</h2>
-
       <div className={styles.cartContent}>
         {/* Левая секция: товары */}
         <div className={styles.cartItemsSection}>
@@ -73,8 +72,6 @@ const CartPage = () => {
             );
           })}
         </div>
-
-        {/* Правая секция: заказ + форма */}
         <div className={styles.sidebar}>
           <div className={styles.orderSection}>
             <h4>Order details</h4>
@@ -86,14 +83,10 @@ const CartPage = () => {
               <strong>${totalPrice.toFixed(2)}</strong>
             </div>
           </div>
-
-          <div className={styles.orderFormWrapper}>
             <OrderForm setIsModalOpen={setIsModalOpen} />
-          </div>
         </div>
       </div>
 
-      {/* Модальное окно */}
       {isModalOpen && (
         <div className={styles.modal}>
           <div className={styles.modalContent}>

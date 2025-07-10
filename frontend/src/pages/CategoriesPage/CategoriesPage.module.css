@@ -4,15 +4,12 @@
   padding: 40px;
 }
 
-.breadcrumbs {
-  font-size: 16px;
-  margin-bottom: 24px;
+.links {
+  margin-bottom: 32px;
+  display: flex;
+  gap: 16px;
 }
 
-.title {
-  font-size: 64px;
-  margin-bottom: 32px;
-}
 
 .grid {
   display: flex;

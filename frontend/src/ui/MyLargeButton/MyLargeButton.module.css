@@ -1,11 +1,51 @@
 .button {
-    padding-block: 16px;
-    padding-inline: 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  transition: background-color 0.1s ease, color 0.3s ease;
+}
 
-    background-color: white;
-    border-radius: 6px;
+.size516 {
+  width: 516px;
+  height: 58px;
+}
 
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 130%;
+.size484 {
+  width: 484px;
+  height: 58px;
+}
+
+.whiteOnDark {
+  background-color: #FFFFFF;
+  color: #282828;
+}
+
+.whiteOnDark:hover {
+  background-color: #F5F5F5;
+  transform: scale(1.03);
+}
+
+.whiteOnDark:active {
+  background-color: #E0E0E0;
+}
+
+.blueOnWhite {
+  background-color: #0D50FF;
+  color: #FFFFFF;
+}
+
+.blueOnWhite:hover {
+  background-color: #003EDC;
+  transform: scale(0.2);
+}
+
+.blueOnWhite:active {
+  background-color: #002EB0;
 }

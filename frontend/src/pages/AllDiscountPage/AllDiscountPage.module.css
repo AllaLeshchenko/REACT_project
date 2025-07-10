@@ -2,20 +2,25 @@
   padding: 40px;
   max-width: 1400px;
   margin: 0 auto;
-  font-family: sans-serif;
 }
 
-.header {
+.links {
+  margin-bottom: 32px;
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
+}
+
+.sorting {
+  display: flex;
   align-items: center;
+  gap: 10px;
   margin-bottom: 32px;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 316px);
-  gap: 24px 20px;
+  gap: 20px;
   justify-content: space-between;
 }
 
