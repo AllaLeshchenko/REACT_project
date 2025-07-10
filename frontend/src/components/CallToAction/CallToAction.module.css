@@ -61,22 +61,6 @@
   margin-bottom: 32px;
 }
 
-.form button {
-  height: 58px;
-  background-color: white;
-  color: #282828;
-  font-weight: bold;
-  font-size: 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.form button:hover {
-  background-color: #f0f0f0;
-}
-
 .success {
   color: #b6ffb6;
   margin-top: 16px;

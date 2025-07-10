@@ -1,0 +1,49 @@
+.container {
+  width: 908px;
+  height: 36px;
+  display: flex;
+  margin: 30px 0 30px 0;
+  gap: 40px;
+}
+
+.priceFilter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sortFilter {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.label {
+  font-size: 20px;
+  color: #282828;
+  font-weight: 400;
+}
+
+.input {
+  width: 112px;
+  height: 36px;
+  border: 1px solid #dddddd;
+  padding: 0 8px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.select {
+  width: 200px;
+  height: 36px;
+  border: 1px solid #dddddd;
+  padding: 0 8px;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: white;
+  appearance: none;
+  background-image: url('../../assets/images/ic.svg');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+}

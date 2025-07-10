@@ -5,8 +5,8 @@ function MyLargeButton({
   onClick,
   type = 'button',
   className = '',
-  variant = 'whiteOnDark',  // или blueOnWhite
-  size = 'size516',         // или size484
+  variant = 'whiteOnDark',  
+  size = 'size516',         
 }) {
   return (
     <button 

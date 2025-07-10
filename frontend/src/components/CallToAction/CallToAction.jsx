@@ -12,7 +12,7 @@ const CallToAction = () => {
           <input type="text" name="name" placeholder="Name" required />
           <input type="tel" name="phone" placeholder="Phone number" required />
           <input type="email" name="email" placeholder="Email" required />
-          <MyLargeButton>Get a discount</MyLargeButton>
+          <MyLargeButton size = 'size516' variant = 'whiteOnDark'>Get a discount</MyLargeButton>
         </form>
       </div>
     </section>

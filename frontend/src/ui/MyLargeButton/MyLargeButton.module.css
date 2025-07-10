@@ -28,8 +28,8 @@
 }
 
 .whiteOnDark:hover {
-  background-color: #F5F5F5;
-  transform: scale(1.03);
+  background-color: #01081b;
+  color: #FFFFFF;
 }
 
 .whiteOnDark:active {
@@ -42,8 +42,8 @@
 }
 
 .blueOnWhite:hover {
-  background-color: #003EDC;
-  transform: scale(0.2);
+  background-color: #01081b;
+
 }
 
 .blueOnWhite:active {
