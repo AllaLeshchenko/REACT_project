@@ -1,19 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-// 1. Получить все категории
 export const fetchCategories = createAsyncThunk('api/fetchCategories', async () => {
   const res = await axios.get('http://localhost:3333/categories/all')
   return res.data
 })
 
-// 2. Получить все продукты
 export const fetchAllProducts = createAsyncThunk('api/fetchAllProducts', async () => {
   const res = await axios.get('http://localhost:3333/products/all')
   return res.data
 })
 
-// 3. Получить продукты по категории
 export const fetchProductsByCategory = createAsyncThunk(
   'api/fetchProductsByCategory',
   async (categoryId) => {
@@ -22,7 +19,6 @@ export const fetchProductsByCategory = createAsyncThunk(
   }
 )
 
-// 4. Получить продукт по ID
 export const fetchProductById = createAsyncThunk('api/fetchProductById', async (productId) => {
   const res = await axios.get(`http://localhost:3333/products/${productId}`)
   return { productId, data: res.data }
@@ -46,7 +42,6 @@ const apiSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    // Категории
     builder
       .addCase(fetchCategories.pending, (state) => {
         state.categories.status = 'loading'
@@ -60,7 +55,6 @@ const apiSlice = createSlice({
         state.categories.error = action.error.message
       })
 
-    // Все продукты
     builder
       .addCase(fetchAllProducts.pending, (state) => {
         state.products.status = 'loading'
@@ -74,7 +68,6 @@ const apiSlice = createSlice({
         state.products.error = action.error.message
       })
 
-    // Продукты по категории
     builder
       .addCase(fetchProductsByCategory.pending, (state, action) => {
         const id = action.meta.arg
@@ -101,7 +94,6 @@ const apiSlice = createSlice({
         }
       })
 
-    // Продукт по ID
     builder
       .addCase(fetchProductById.pending, (state, action) => {
         const id = action.meta.arg

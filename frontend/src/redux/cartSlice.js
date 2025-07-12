@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  items: [],         
+  items: [],
   totalPrice: 0,
+  lastAddedFrom: '/',
+  lastAddedFromLabel: 'Home',
 }
 
 function calculateTotal(items) {
@@ -17,16 +19,24 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const item = action.payload
-      const existing = state.items.find((i) => i.id === item.id)
-
-      if (existing) {
-        existing.quantity += 1
+      const { id, quantity = 1, addedFrom, addedFromLabel } = action.payload;
+      const existingItem = state.items.find(item => item.id === id);
+    
+      if (existingItem) {
+        existingItem.quantity += quantity;
       } else {
-        state.items.push({ ...item, quantity: 1 })
+        state.items.push({ ...action.payload, quantity });
       }
-
-      state.totalPrice = calculateTotal(state.items)
+    
+      if (addedFrom) {
+        state.lastAddedFrom = addedFrom;
+        state.lastAddedFromLabel = addedFromLabel || 'Store';
+      }
+    
+      state.totalPrice = state.items.reduce((total, item) => {
+        const itemPrice = item.discont_price ?? item.price;
+        return total + itemPrice * item.quantity;
+      }, 0);
     },
 
     removeFromCart: (state, action) => {
@@ -67,7 +77,6 @@ export const {
   clearCart,
 } = cartSlice.actions
 
-// Опциональные селекторы:
 export const selectCartItems = (state) => state.cart.items;
 export const selectTotalPrice = (state) => state.cart.totalPrice;
 

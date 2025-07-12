@@ -1,19 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { increaseQty, decreaseQty, removeFromCart } from '../../redux/cartSlice';
 import { useState } from 'react';
-import OrderForm from '../../ui/OrderForm/OrderForm';
 import { useNavigate } from 'react-router-dom';
+import OrderForm from '../../ui/OrderForm/OrderForm';
 import styles from './CartPage.module.css';
 import MyButton from '../../ui/MyButton/MyButton';
+import NavButton from '../../ui/NavButton/NavButton';
 
 const CartPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const cartItems = useSelector((state) => state.cart.items);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
+
+
+  const {
+    items: cartItems,
+    totalPrice,
+    lastAddedFrom,
+  } = useSelector((state) => state.cart);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Если корзина пуста и модалка не открыта — показать сообщение
   if (cartItems.length === 0 && !isModalOpen) {
     return (
       <div className={styles.pageContainer}>
@@ -26,10 +32,13 @@ const CartPage = () => {
 
   return (
     <div className={styles.container}>
-      <h2>Shopping cart</h2>
+      <div className={styles.headerRow}>
+         <h2>Shopping cart</h2>
+         <NavButton to={lastAddedFrom || '/'}>Back to store</NavButton>
+      </div>
       <div className={styles.cartContent}>
         <div className={styles.cartItemsSection}>
-          {cartItems.map((item) => {
+          {[...cartItems].reverse().map((item) => {
             const price = item.discont_price ?? item.price;
             const oldPrice = item.discont_price ? item.price : null;
 
@@ -51,18 +60,18 @@ const CartPage = () => {
 
                   <div className={styles.price}>
                     <div className={styles.controls}>
-                      <button onClick={() => dispatch(decreaseQty(item.id))}>
-                        −
-                      </button>
+                      <button onClick={() => dispatch(decreaseQty(item.id))}>−</button>
                       <span>{item.quantity}</span>
-                      <button onClick={() => dispatch(increaseQty(item.id))}>
-                        +
-                      </button>
+                      <button onClick={() => dispatch(increaseQty(item.id))}>+</button>
                     </div>
                     <div className={styles.priceBlock}>
-                      <span className={styles.currentPrice}>${(price * item.quantity).toFixed(2)}</span>
-                        {oldPrice && (
-                      <span className={styles.oldPrice}>${(oldPrice * item.quantity).toFixed(2)}</span>
+                      <span className={styles.currentPrice}>
+                        ${(price * item.quantity).toFixed(2)}
+                      </span>
+                      {oldPrice && (
+                        <span className={styles.oldPrice}>
+                          ${(oldPrice * item.quantity).toFixed(2)}
+                        </span>
                       )}
                     </div>
                   </div>
@@ -71,18 +80,20 @@ const CartPage = () => {
             );
           })}
         </div>
+
         <div className={styles.sidebar}>
           <div className={styles.orderSection}>
             <h4>Order details</h4>
+            <p>{cartItems.length} unique items</p>
             <p>
-              {cartItems.reduce((sum, item) => sum + item.quantity, 0)} items
+              {cartItems.reduce((sum, item) => sum + item.quantity, 0)} total items
             </p>
             <div className={styles.orderTotal}>
               <span>Total:</span>
               <strong>${totalPrice.toFixed(2)}</strong>
             </div>
           </div>
-            <OrderForm setIsModalOpen={setIsModalOpen} />
+          <OrderForm setIsModalOpen={setIsModalOpen} />
         </div>
       </div>
 

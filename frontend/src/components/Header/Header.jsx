@@ -9,7 +9,7 @@ import NavLinkCustom from '../../ui/NavLink/NavLink';
 
 function Header() {
   const cartItems = useSelector((state) => state.cart.items);
-  const totalQty = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const uniqueItemsCount = cartItems.length;
 
   return (
     <header className={styles.header}>
@@ -30,7 +30,7 @@ function Header() {
         <div className={styles.cartWrapp}>
           <NavLink to="/cart" className={styles.cartLink}>
             <img className={styles.cartImg} src={cartIcon} alt="cart" />
-            {totalQty > 0 && <div className={styles.cartBadge}>{totalQty}</div>}
+           {uniqueItemsCount > 0 && <div className={styles.cartBadge}>{uniqueItemsCount}</div>}
           </NavLink>
         </div>
       </nav>

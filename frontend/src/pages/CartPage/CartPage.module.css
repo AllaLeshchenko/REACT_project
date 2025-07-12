@@ -3,6 +3,13 @@
   margin: 40px auto;
 }
 
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .cartContent {
   display: flex;
   justify-content: flex-start;

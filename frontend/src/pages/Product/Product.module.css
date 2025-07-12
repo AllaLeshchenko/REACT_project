@@ -57,6 +57,20 @@
   text-decoration: line-through;
 }
 
+.discont {
+  width: 63px;
+  height: 34px;
+  background: #0D50FF;
+  color: #DDDDDD;
+  font-size: 20px;
+   font-weight: bold;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .controls {
   display: flex;
   align-items: center;
@@ -64,7 +78,6 @@
   margin-bottom: 30px;
 }
 
-/* Кнопки +/- */
 .controls button:not(.cartBtn) {
   width: 58px;
   height: 58px;
@@ -76,7 +89,6 @@
   cursor: pointer;
 }
 
-/* Количество */
 .controls span {
   width: 90px;
   height: 58px;
@@ -88,20 +100,9 @@
   border-radius: 8px;
 }
 
-/* Кнопка Add to cart */
-.cartBtn {
-  width: 315px;
-  height: 58px;
-  background-color: #007bff;
-  color: white;
-  font-size: 18px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
 
 .description {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .readMore {

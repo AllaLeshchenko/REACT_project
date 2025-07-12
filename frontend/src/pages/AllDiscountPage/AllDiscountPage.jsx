@@ -51,13 +51,13 @@ const AllDiscountPage = () => {
 
       <div className={styles.grid}>
         {productsToShow.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            showButton={true}
-            onAddToCart={() => dispatch(addToCart(product))}
-            linkState={{ from: location.pathname, label: 'All sales' }}
-          />
+        <ProductCard
+          key={product.id}
+          product={product}
+          fromPath={location.pathname}
+          fromLabel="All sales"
+          onAddToCart={(productWithSource) => dispatch(addToCart(productWithSource))}
+        />
         ))}
       </div>
     </div>
