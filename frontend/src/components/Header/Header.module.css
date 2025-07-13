@@ -1,4 +1,4 @@
-.header{
+.header {
   max-width: 1440px;
   width: 100%;
   padding: 40px 0;
@@ -11,18 +11,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   padding: 0 30px;
   gap: 32px;
+  position: relative;
 }
 
-.navigation{
-  display: flex;
-  gap: 30px;
-}
 .logoWrapp {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
 }
 
 .logo {
@@ -30,19 +27,22 @@
   width: auto;
 }
 
-.navLinks {
+.navigation {
+  max-width: 520px;
   display: flex;
+  gap: 30px;
+  flex: 1 1 auto;
   justify-content: center;
-  flex: 2;
 }
 
 .cartWrapp {
   display: flex;
   justify-content: flex-end;
   min-width: 48px;
+  flex: 0 0 auto;
 }
 
-.cartLink{
+.cartLink {
   position: relative;
 }
 
@@ -61,6 +61,7 @@
   justify-content: center;
   pointer-events: none; 
 }
+
 .cartImg {
   width: 48px;
   height: 48px;
@@ -71,74 +72,56 @@
   transform: scale(1.1);
 }
 
-@media (max-width: 1000px) {
-  .nav {
-    padding: 0 15px;
-    gap: 16px;
-  }
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+}
 
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 10;
+  width: 200px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+
+
+@media (max-width: 760px) {
   .navigation {
-    gap: 16px;
+    display: none;
   }
 
-  .logo {
-    height: 40px;
+  .burger {
+    display: block;
+  }
+
+  .logoWrapp {
+    flex: 0 0 auto;
   }
 
   .cartWrapp {
-    min-width: 40px;
+    flex: 0 0 auto;
   }
 
-  .cartImg {
-    width: 40px;
-    height: 40px;
-  }
-
-  .cartBadge {
-    top: 6px;
-    right: 14px;
-    width: 20px;
-    height: 20px;
-    font-size: 11px;
-  }
-
-  .navLinks {
-    flex: 1;
-    justify-content: space-around;
-  }
-
-  .header {
-    padding: 20px 0;
-  }
-}
-
-@media (max-width: 500px) {
   .nav {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 15px;
-    gap: 16px;
-  }
-
-  .navigation {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .logo {
-    height: 40px;
-  }
-
-  .cartImg {
-    width: 36px;
-    height: 36px;
-  }
-
-  .cartBadge {
-    width: 20px;
-    height: 20px;
-    font-size: 10px;
-    top: 5px;
-    right: 10px;
+    justify-content: space-between;
   }
 }
+
+

@@ -22,7 +22,8 @@ const CategoriesPage = () => {
         <NavButton to="/">Home</NavButton>
         <NavButton to="/categories">Categories</NavButton>
       </div>
-      <h2 className={styles.title}>Categories</h2>
+      <h2>Categories</h2>
+      
       <div className={styles.grid}>
         {items.map((category) => (
           <Link

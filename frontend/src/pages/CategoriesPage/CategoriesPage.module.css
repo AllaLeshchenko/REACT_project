@@ -1,7 +1,10 @@
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0; 
+  flex-wrap: wrap;
 }
 
 .links {
@@ -15,13 +18,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
+  margin-top: 40px;
 }
 
 .card {
-  width: 316px;
+  max-width: 316px;
   text-decoration: none;
   color: inherit;
   text-align: center;
+  cursor: pointer;
 }
 
 .card img {
@@ -32,13 +37,13 @@
 }
 
 .card h3 {
-  font-size: 20px;
   margin-top: 12px;
 }
 
-.links {
-  margin-top: 40px;
-  margin-bottom: 24px;
-  display: flex;
-  gap: 16px;
-}
+/* @media(max-width: 1000px) {
+  .card {
+    width: 250px;
+    height: 270px;
+  }
+  
+} */

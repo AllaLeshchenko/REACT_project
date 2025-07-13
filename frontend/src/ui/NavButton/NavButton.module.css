@@ -14,7 +14,6 @@
   transform: scale(1.03);
 }
 .navButton.active {
-   /* color: #282828; */
    color: black;
 
 }
